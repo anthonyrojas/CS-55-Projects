@@ -6,18 +6,30 @@ import java.util.*;
 import java.io.*;
 
 public class Dealership {
+	
 	private ArrayList<SalesPerson> sp = new ArrayList<SalesPerson>();
 	private ArrayList<Car> cars = new ArrayList<Car>();
 	private Manager mg;
-	private Map <SalesPerson, ArrayList<Car>> salesTransactions = new TreeMap <SalesPerson, ArrayList<Car>>();
+
+	private ArrayList<Transaction> carSales = new ArrayList<Transaction>();
+
 	public Dealership(Manager m){
 		mg = m;
 	}
 	
-	public Dealership(ArrayList<SalesPerson> salesp, ArrayList<Car> c, Manager m){
+	public Dealership(Manager m, ArrayList<SalesPerson> salesp, ArrayList<Car> c, ArrayList<Transaction> cL){
 		sp = salesp;
 		cars = c;
 		mg = m;
+		carSales=cL;
+	}
+
+	public void setManager(Manager m){
+		this.mg = m;
+	}
+
+	public voidGetManager(){
+		return mg;
 	}
 	
 	public void addCar(Car another){
@@ -44,5 +56,20 @@ public class Dealership {
 		cars.remove(c);
 	}
 	
-	
+	public SalesPerson getPersonOfTheMonth(){
+		double highestBonus = sp.get(0).getBonus();
+		SalesPerson topSalesPerson = sp.get(0);
+		for(SalesPerson s : sp){
+			if(s.getBonus() > highestBonus){
+				highestBonus = s.getBonus();
+				topSalesPerson = s;
+			}
+		}
+		return topSalesPerson;
+	}
+
+	@Override
+	public String toString(){
+		
+	}
 }
