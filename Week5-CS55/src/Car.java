@@ -9,13 +9,13 @@ public class Car {
 	private String make;
 	private double price;
 	private int year;
-	private int vinNumber;
+	private long vinNumber;
 	
 	public Car(){
 		
 	}
 
-	public Car(String m, double p, int y, int vN){
+	public Car(String m, double p, int y, long vN){
 		make = m;
 		price = p;
 		year = y;
@@ -34,7 +34,7 @@ public class Car {
 		this.year = y;
 	}
 
-	public void setVinNumber(int vN){
+	public void setVinNumber(long vN){
 		this.vinNumber = vN;
 	}
 
@@ -50,7 +50,7 @@ public class Car {
 		return year;
 	}
 
-	public int getVinNumber(){
+	public long getVinNumber(){
 		return vinNumber;
 	}
 
