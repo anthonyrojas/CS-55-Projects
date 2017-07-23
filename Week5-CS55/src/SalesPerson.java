@@ -4,18 +4,19 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.util.*;
 import java.io.*;
+import java.text.*;
 
 public class SalesPerson {
 	private String firstName, lastName;
 	private double bonus;
 	private String address;
-	private Date hiringDate;
+	private Calendar hiringDate;
 	
 	public SalesPerson(){
 		
 	}
 
-	public SalesPerson(String fn, String ln, double b, String a, Date hd){
+	public SalesPerson(String fn, String ln, double b, String a, Calendar hd){
 		firstName = fn;
 		lastName = ln;
 		bonus = b;
@@ -39,7 +40,7 @@ public class SalesPerson {
 		this.address = a;
 	}
 
-	public void setHiringDate(Date hd){
+	public void setHiringDate(Calendar hd){
 		this.hiringDate = hd;
 	}
 
@@ -59,12 +60,13 @@ public class SalesPerson {
 		return address;
 	}
 
-	public Date getHiringDate(){
+	public Calendar getHiringDate(){
 		return hiringDate;
 	}
 
-	public String getCalendarDate(Date d){
-		return String.valueOf(d.getMonth()) + "/" + String.valueOf(d.getDay()) + "/" + String.valueOf(d.getYear());
+	public String getCalendarDate(Calendar d){
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		return df.format(hiringDate.getTime());
 	}
 
 	@Override
