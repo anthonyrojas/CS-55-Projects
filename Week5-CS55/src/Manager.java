@@ -4,16 +4,17 @@ import java.awt.event.*;
 import javax.swing.event.*;
 import java.util.*;
 import java.io.*;
+import java.text.*;
 
 public class Manager {
 	private String firstName, lastName;
 	private String address;
-	private Date hiringDate;
+	private Calendar hiringDate;
 	
 	public Manager(){
 	}
 	
-	public Manager(String fn, String ln, String a, Date hd){
+	public Manager(String fn, String ln, String a, Calendar hd){
 		firstName = fn;
 		lastName = ln;
 		address = a;
@@ -32,7 +33,7 @@ public class Manager {
 		this.address = a;
 	}
 	
-	public void setHiringDate(Date hd){
+	public void setHiringDate(Calendar hd){
 		this.hiringDate = hd;
 	}
 	
@@ -48,7 +49,7 @@ public class Manager {
 		return address;
 	}
 	
-	public Date getHiringDate(){
+	public Calendar getHiringDate(){
 		return hiringDate;
 	}
 	
@@ -57,7 +58,8 @@ public class Manager {
 		return firstName + " " + lastName + "\n" + address + "\n" + getCalendarDate(hiringDate);
 	}
 
-	public String getCalendarDate(Date d){
-		return String.valueOf(d.getMonth()) + "/" + String.valueOf(d.getDay()) + "/" + String.valueOf(d.getYear());
+	public String getCalendarDate(Calendar d){
+		SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		return df.format(hiringDate.getTime());
 	}
 }
