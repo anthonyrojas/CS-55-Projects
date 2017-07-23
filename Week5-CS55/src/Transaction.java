@@ -28,4 +28,9 @@ public class Transaction {
 	public Car getCar(){
 		return carSold;
 	}
+
+	@Override
+	public String toString(){
+		return sp.toString() + "\t" + carSold.toString();
+	}
 }
