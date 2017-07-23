@@ -54,7 +54,10 @@ public class Manager {
 	
 	@Override
 	public String toString(){
-		String s = firstName + " " + lastName + "\n" + address + "\n" + hiringDate.getMonth() + "/" + hiringDate.getDay() + "/" + hiringDate.getYear();
-		return s;
+		return firstName + " " + lastName + "\n" + address + "\n" + getCalendarDate(hiringDate);
+	}
+
+	public String getCalendarDate(Date d){
+		return String.valueOf(d.getMonth()) + "/" + String.valueOf(d.getDay()) + "/" + String.valueOf(d.getYear());
 	}
 }
