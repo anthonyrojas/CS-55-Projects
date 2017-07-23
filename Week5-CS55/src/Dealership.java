@@ -28,7 +28,7 @@ public class Dealership {
 		this.mg = m;
 	}
 
-	public voidGetManager(){
+	public Manager getManager(){
 		return mg;
 	}
 	
@@ -44,15 +44,14 @@ public class Dealership {
 		sp.remove(s);
 	}
 	
-	public void carSold(SalesPerson s){
-		
+	public void carSold(SalesPerson s, Car c){
+		cars.remove(c);
+		carSales.add(new Transaction(s, c));
+		double bonusAdd = (c.getPrice() * 0.2) + s.getBonus();
+		s.setBonus(bonusAdd);
 	}
 	
 	public void removeCar(Car c){
-		cars.remove(c);
-	}
-	
-	public void addCaer(Car c){
 		cars.remove(c);
 	}
 	
@@ -70,6 +69,15 @@ public class Dealership {
 
 	@Override
 	public String toString(){
-		
+		String output = "Manager:\n" + mg.toString() + "\nSales People:";
+		for(SalesPerson s : sp){
+			output = output + "\n" + s.toString() + "\n";
+		} 
+		output = output + "\nCars:";
+		for(Car c : cars){
+			output = output + "\n" + c.toString() + "\n"; 
+		}
+		output = output + "\nNumber of cars sold: " + String.valueOf(carSales.size());
+		return output;
 	}
 }
