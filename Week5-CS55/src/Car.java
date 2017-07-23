@@ -26,7 +26,7 @@ public class Car {
 		this.make = m;
 	}
 
-	public void setPrice(double price){
+	public void setPrice(double p){
 		this.price = p;
 	}
 
@@ -56,6 +56,6 @@ public class Car {
 
 	@Override
 	public String toString(){
-		return make + "\t" + String.valueOf(price) + "\t" + String.valueOf(year) + "\t" + String.valueOf(vinNumber); 
+		return make + "\t$" + String.valueOf(price) + "\t" + String.valueOf(year) + "\t" + String.valueOf(vinNumber); 
 	}
 }
